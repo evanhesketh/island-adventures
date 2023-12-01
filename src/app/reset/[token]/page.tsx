@@ -38,7 +38,7 @@ export default function ResetForm({ params }: { params: { token: string } }) {
   async function handleSubmit(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/reset", {
+      const res = await fetch("https://island-adventures-demo.netlify.app/api/reset", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
