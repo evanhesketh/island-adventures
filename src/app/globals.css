@@ -23,8 +23,14 @@
   );
 }
 
-.home-loggedIn {
-  height: calc(100vh - 139.9px)
+@layer utilities {
+  .home-loggedIn {
+    height: calc(100vh - 139.9px)
+  }
+
+  .home-loggedIn-small {
+    height: calc(100vh - 123.99px)
+  }
 }
 
 .home-loggedOut {

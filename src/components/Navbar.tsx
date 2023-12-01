@@ -7,8 +7,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 /** Navbar
- * 
- * State: 
+ *
+ * State:
  *  -isOpen: true/false
  */
 export default function Navbar() {
@@ -35,46 +35,44 @@ export default function Navbar() {
             alt="Deck Logo"
             width={75}
             height={75}
-            style={{height: "auto"}}
+            style={{ height: "auto" }}
             className="nav-image inline rounded w-[60px] sm:w-[75px]"
           />{" "}
           Island Adventures
         </Link>
       </h1>
       <hr className="border-1 border-black" />
-      {session?.user?.name && status === "authenticated" && (
-        <>
-          <div className="nav-toggle hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center px-3 py-2 rounded hover:bg-sky-700"
-            >
-              <svg
-                className={`fill-current h-7 w-7 ${
-                  isOpen ? "hidden" : "block"
-                }`}
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-              <svg
-                className={`fill-current h-7 w-7 ${
-                  isOpen ? "block" : "hidden"
-                }`}
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-              </svg>
-            </button>
-          </div>
-          <div
-            className={`nav-links w-full flex-grow ${
-              isOpen ? "block text-center" : "hidden"
-            }`}
+
+      <div className="nav-toggle hidden">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-center px-3 py-2 rounded hover:bg-sky-700"
+        >
+          <svg
+            className={`fill-current h-7 w-7 ${isOpen ? "hidden" : "block"}`}
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div className="text-base p-2" data-testid="nav-links">
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+          <svg
+            className={`fill-current h-7 w-7 ${isOpen ? "block" : "hidden"}`}
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        className={`nav-links w-full flex-grow ${
+          isOpen ? "block text-center" : "hidden"
+        }`}
+      >
+        <div className="text-base p-2" data-testid="nav-links">
+          {session?.user?.name && status === "authenticated" ? (
+            <>
               <Link
                 href={"/location"}
                 className={`nav-link block mt-4 inline-block lg:mt-0 text-white-200 lg:mr-4 ${
@@ -183,10 +181,12 @@ export default function Navbar() {
               >
                 SIGN OUT
               </button>
-            </div>
-          </div>
-        </>
-      )}
+            </>
+          ) : (
+            <>Please log in to access features</>
+          )}
+        </div>
+      </div>
     </nav>
   );
 }
