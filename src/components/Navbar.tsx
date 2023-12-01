@@ -184,6 +184,7 @@ export default function Navbar() {
             </>
           )}
           {!session?.user?.name && <>Please log in to access features</>}
+          {status === "loading" && <></>}
         </div>
       </div>
     </nav>
