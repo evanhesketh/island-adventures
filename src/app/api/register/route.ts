@@ -6,6 +6,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import bcrypt from "bcrypt";
 
+/**
+ * API POST route to register a new guest 'user' account
+ * Returns JSON with a success/failure message
+ */
 export async function POST(req: NextRequest, res: NextResponse) {
   const session = await getServerSession(
     req as unknown as NextApiRequest,

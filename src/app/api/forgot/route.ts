@@ -14,6 +14,11 @@ interface GetAccessTokenResponseInterface {
   res?: GaxiosResponse | null;
 }
 
+/**
+ * API POST route to send a password reset email link
+ * For security reasons, always returns a success message to client, but logs
+ * errors
+ */
 export async function POST(req: NextRequest, res: NextResponse) {
   /**
    * Creates a nodemailer transporter

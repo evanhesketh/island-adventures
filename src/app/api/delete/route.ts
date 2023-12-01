@@ -5,6 +5,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 
+/**
+ * API POST route to delete a guest 'user' account
+ * Returns JSON with a success/failure message
+ */
 export async function POST(req: NextRequest, res: NextResponse) {
   const session = await getServerSession(
     req as unknown as NextApiRequest,

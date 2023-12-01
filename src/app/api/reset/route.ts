@@ -8,6 +8,10 @@ import { JWTTokenInterface } from "../../../../types/interfaces";
 
 require("dotenv").config();
 
+/**
+ * API PUT route to update a user's password if JWT can be verified
+ * Returns JSON with a success/failure message
+ */
 export async function PUT(req: NextRequest, res: NextResponse) {
   try {
     await connectMongoDB();
