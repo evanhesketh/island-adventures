@@ -71,7 +71,7 @@ export default function Navbar() {
         }`}
       >
         <div className="text-base p-2" data-testid="nav-links">
-          {session?.user?.name && status === "authenticated" ? (
+          {session?.user?.name && status === "authenticated" && (
             <>
               <Link
                 href={"/location"}
@@ -182,9 +182,8 @@ export default function Navbar() {
                 SIGN OUT
               </button>
             </>
-          ) : (
-            <>Please log in to access features</>
           )}
+          {!session?.user?.name && <>Please log in to access features</>}
         </div>
       </div>
     </nav>
