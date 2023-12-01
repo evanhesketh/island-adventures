@@ -71,6 +71,7 @@ export default function Navbar() {
         }`}
       >
         <div className="text-base p-2" data-testid="nav-links">
+          {status === "loading" && <></>}
           {session?.user?.name && status === "authenticated" && (
             <>
               <Link
@@ -184,7 +185,6 @@ export default function Navbar() {
             </>
           )}
           {!session?.user?.name && <>Please log in to access features</>}
-          {status === "loading" && <></>}
         </div>
       </div>
     </nav>
