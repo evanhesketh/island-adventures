@@ -1,6 +1,11 @@
 # Island Adventures
 
-This is a demo version of a web application I developed for a client's rental property. All names/data is fabricated for demo purposes.
+This is a demo version of a web application I developed for a client's rental property. All names/data fabricated for demo purposes.
+
+Demo:
+https://island-adventures-demo.netlify.app/
+- username: guest
+- password: 123123
 
 ### Technical information:
 - Next.js 13 (app router)
