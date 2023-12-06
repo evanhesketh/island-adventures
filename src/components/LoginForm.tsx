@@ -66,6 +66,11 @@ export default function LoginForm() {
       ) : (
         <div className="flex flex-col">
         <form className="flex flex-col" onSubmit={handleSubmit} data-testid="login-form">
+          <p>
+            <strong>Demo credentials:</strong><br></br>
+            username: guest<br></br>
+            password: 123123
+          </p>
           {error && (
             <div className="bg-red-500 text-white px-2 py-2 mb-2 rounded-lg">
               {error}
