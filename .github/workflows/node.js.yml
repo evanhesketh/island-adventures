@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: testing
+    
     strategy:
       matrix:
         node-version: [16.x, 18.x]
@@ -33,6 +33,6 @@ jobs:
         NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
         CALENDAR_SERVICE: ${{ secrets.CALENDAR_SERVICE }}
         CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
-        OWNER_1: ${{ secrets.OWNER_1 }}
+        OWNER_1: Yeti-pending
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
     - run: npm test
