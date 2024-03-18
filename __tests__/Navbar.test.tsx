@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { useRouter } from "next/navigation";
 
@@ -11,12 +11,11 @@ jest.mock('next/navigation');
 describe("Navbar", () => {
     it("renders correctly when signed out", async () => {
         nextAuth.useSession = jest.fn(() => {
-            return {data: {}, status: "unauthenticated"}
+            return {data: null, status: "unauthenticated"}
         });
 
         render(<Navbar />);
-
-        expect(screen.queryByTestId("nav-links")).not.toBeInTheDocument();
+        expect(await screen.findByText("Please log in to access features")).toBeVisible();
     });
 
     it("renders correctly when signed in as guest", async () => {

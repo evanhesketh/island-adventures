@@ -49,7 +49,7 @@ export default function CalendarPrivate({
 
   return (
     <>
-      <div className="flex justify-center mb-2">
+      <div className="flex justify-center mb-2" data-testid="private-calendar">
         <div className="flex flex-col items-center mr-4 sm:mr-20">
           <div className="h-8 w-10 border border-black bg-gray-400"></div>
           <span className="text-sm sm:text-base">Booked</span>
