@@ -14,7 +14,7 @@ import { BookingDataInterface } from "../../../types/interfaces";
  * State:
  * -processedBookingData: {owners: {2023: {9: {2: 'Smith', 3: 'Smith', 4: 'Smith'}}}, renters: {}}
  *
- * Availability -> Calendar
+ * Availability -> CalendarForm
  */
 export default function Availability() {
   const [processedBookingData, setProcessedBookingData] =
