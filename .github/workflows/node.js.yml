@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    environment: testing
     strategy:
       matrix:
         node-version: [16.x, 18.x]
@@ -34,8 +34,5 @@ jobs:
         CALENDAR_SERVICE: ${{ secrets.CALENDAR_SERVICE }}
         CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
         OWNER_1: ${{ secrets.OWNER_1 }}
-        OWNER_2: ${{ secrets.OWNER_2 }}
-        OWNER_3: ${{ secrets.OWNER_3 }}
-        OWNER_4: ${{ secrets.OWNER_4 }}
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
     - run: npm test
