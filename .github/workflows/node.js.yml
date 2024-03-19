@@ -13,12 +13,18 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+    environment: testing
     strategy:
       matrix:
         node-version: [16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    env: 
+        NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        CALENDAR_SERVICE: ${{ secrets.CALENDAR_SERVICE }}
+        CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
+        OWNER_1: ${{ secrets.OWNER_1 }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,11 +34,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-      env: 
-        NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
-        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-        CALENDAR_SERVICE: ${{ secrets.CALENDAR_SERVICE }}
-        CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
-        OWNER_1: Yeti-pending
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
     - run: npm test
