@@ -33,9 +33,6 @@ export default function RegisterForm() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [users, setUsers] = useState<UserInterface[]>([]);
 
-  console.log("role on admin=", session?.user?.role)
-  console.log("status on admin=", status)
-
   /** Load users from DB on mount */
   useEffect(() => {
     getUsers();
@@ -75,11 +72,9 @@ export default function RegisterForm() {
       });
 
       if (res.ok) {
-        console.log(await res.json());
         setFormData(INITIAL_FORM_DATA);
         getUsers();
       } else {
-        console.log("User registration failed.");
         setFormData((formData) => ({
           ...formData,
           password: "",
@@ -109,7 +104,6 @@ export default function RegisterForm() {
       });
 
       if (res.ok) {
-        console.log(await res.json());
         getUsers();
       }
     } catch (err) {
